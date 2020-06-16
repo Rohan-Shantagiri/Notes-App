@@ -16,8 +16,10 @@
     vertical-align: middle;
 }
 .main{
-    align-items: middle;
-    margin: 100px;
+    display: block;
+    margin: 350px;
+    margin-bottom: 30px;
+    margin-top: 25px ;
 }
 .fa{
     font-size: 20px;
