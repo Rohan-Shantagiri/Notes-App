@@ -1,6 +1,12 @@
 <div class="container">
     <!-- <form> -->
     <input type="textarea" [(ngModel)]="noteText" required value= {{noteText}} id="input" placeholder="Write Notes here">
-    <br><button class="btn btn-primary" (click)="addNotes()">create</button>
+    <span style="color:red" *ngIf="noteText?.length > 50">
+        Only 50 Characters are allowed
+  </span>
+  <span style="color:red" *ngIf="!noteText">
+        required
+  </span>
+    <br><button [disabled]="noteText?.length > 50 || !noteText" class="btn btn-primary" (click)="addNotes()">create</button>
     <!-- </form> -->
 </div>
