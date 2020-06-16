@@ -1,0 +1,9 @@
+<div class="container">
+  <div class="topbar">
+    <h1>Notes App</h1>
+  </div>
+  <app-note></app-note>
+  <div *ngFor="let note of noteService.getNotes()">
+    <app-notelist [note]="note"></app-notelist>
+  </div>
+</div>
