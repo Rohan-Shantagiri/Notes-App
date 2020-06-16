@@ -8,6 +8,7 @@ import { NoteserviceService } from '../noteservice.service';
 })
 export class NoteComponent implements OnInit {
 
+
   public noteText: string;
   constructor(private noteService:NoteserviceService) {
     this.noteText = '';
@@ -16,7 +17,7 @@ export class NoteComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  private addNotes(): void {
+  public addNotes(): void {
     this.noteService.addNotes(this.noteText);
     this.noteText = '';
   }

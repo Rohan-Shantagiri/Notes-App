@@ -10,11 +10,15 @@ import { NoteserviceService } from '../noteservice.service';
 export class NotelistComponent implements OnInit {
 
   @Input()
-  private note: Note;
+  public note: Note;
 
   constructor(private noteService:NoteserviceService) { }
 
   ngOnInit(): void {
+  }
+
+  delete(): void {
+    this.noteService.removeNotes(this.note.id);
   }
 
 }

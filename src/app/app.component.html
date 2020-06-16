@@ -1,9 +1,14 @@
-<div class="container">
+<div class="container1">
   <div class="topbar">
-    <h1>Notes App</h1>
+    <h1 id="logo">Notes App</h1>
   </div>
-  <app-note></app-note>
+  <div class="d-flex justify-content-center">
   <div *ngFor="let note of noteService.getNotes()">
     <app-notelist [note]="note"></app-notelist>
   </div>
+</div>
+<div class="d-flex justify-content-center">
+  <i class="fa fa-plus" *ngIf="plus" id="plus" (click)="onClick()" aria-hidden="true"></i>
+         <app-note *ngIf="!plus"></app-note>
+        </div>
 </div>

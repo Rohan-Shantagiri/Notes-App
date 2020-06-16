@@ -9,5 +9,11 @@ import { NoteserviceService } from './noteservice.service';
 export class AppComponent {
   title = 'NotesApp';
 
-  constructor(private noteService:NoteserviceService) {}
+  plus= true;
+
+  onClick(){
+    this.plus=false;
+  }
+
+  constructor(public noteService:NoteserviceService) {}
 }

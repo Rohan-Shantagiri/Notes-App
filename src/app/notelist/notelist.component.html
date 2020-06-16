@@ -1,3 +1,6 @@
-<div>
-    {{note.text}}
+<div class="container">
+    <button class="btn btn-danger" id="delete" (click)="delete()">x</button>
+    <i class="fa fa-pencil-square-o" (click)="onEdit()" aria-hidden="true"></i>
+    <input type="textarea" *ngIf="onEdit()" >
+    <h4>{{note.text}}</h4>
 </div>

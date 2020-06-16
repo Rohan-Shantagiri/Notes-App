@@ -2,3 +2,24 @@
     padding: 0px;
     margin: 0px;
 }
+.topbar{
+    background-color: brown;
+    height: 90px;
+}
+.container1{
+    margin: 0px;
+    padding : 0px;
+    width: 100%;
+}
+#logo{
+    margin: 20px;
+    vertical-align: middle;
+}
+.main{
+    align-items: middle;
+    margin: 100px;
+}
+.fa{
+    font-size: 20px;
+    text-align: center!important;
+}
