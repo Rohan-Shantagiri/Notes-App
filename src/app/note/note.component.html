@@ -1,12 +1,21 @@
 <div class="container">
     <!-- <form> -->
-    <input type="textarea" [(ngModel)]="noteText" required value= {{noteText}} id="input" placeholder="Write Notes here">
-    <span style="color:red" *ngIf="noteText?.length > 50">
+    <input type="textarea" *ngIf="singleNote" [(ngModel)]="singleNote.text" required value={{singleNote.text}}
+        id="input" placeholder="Write Notes here">
+
+    <!-- <input type="textarea" *ngIf="!singleNote" [(ngModel)]="noteText" required value={{noteText}} id="input"
+        placeholder="Write Notes heres"> -->
+    <span style="color:red" *ngIf="singleNote.text.length > 50">
         Only 50 Characters are allowed
-  </span>
-  <span style="color:red" *ngIf="!noteText">
+    </span>
+    <br>
+    <span style="color:red" *ngIf="singleNote.text.length<=0">
         required
-  </span>
-    <br><button [disabled]="noteText?.length > 50 || !noteText" class="btn btn-primary" (click)="addNotes()">create</button>
+    </span>
+    <br>
+    <button *ngIf="singleNote.id==note.length" [disabled]="!singleNote.text" class="btn btn-primary"
+        (click)="addNotes()">create</button>
+    <button *ngIf="singleNote.id!=note.length" [disabled]="!singleNote.text" class="btn btn-primary"
+        (click)="editNotes()">update</button>
     <!-- </form> -->
 </div>

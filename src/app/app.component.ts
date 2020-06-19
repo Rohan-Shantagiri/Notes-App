@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, Input, EventEmitter } from '@angular/core';
 import { NoteserviceService } from './noteservice.service';
 
 @Component({
@@ -8,12 +8,20 @@ import { NoteserviceService } from './noteservice.service';
 })
 export class AppComponent {
   title = 'NotesApp';
+  edit = false;
+  singleData: any;
 
-  plus= true;
-
-  onClick(){
-    this.plus=false;
+  onClick() {
+    this.edit = false;
+    let data = JSON.parse(localStorage.getItem("notes"))['notes'];
+    this.singleData = { id: data.length, text: '' };
   }
 
-  constructor(public noteService:NoteserviceService) {}
+  constructor(public noteService: NoteserviceService) { }
+  receiveData($event) {
+    if ($event) {
+      this.edit = true;
+      this.singleData = $event;
+    }
+  }
 }

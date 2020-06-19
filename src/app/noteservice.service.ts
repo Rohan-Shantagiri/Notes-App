@@ -12,42 +12,43 @@ export class NoteserviceService {
 
     let notes = this.getNotes();
 
-    if(notes.length == 0){
+    if (notes.length == 0) {
       this.nextId = 0;
     }
     else {
       let maxId = notes[notes.length - 1].id;
       this.nextId = maxId + 1;
     }
-   }
+  }
 
-   public addNotes(text : string): void {
-     let note = new Note(this.nextId, text);
-     let notes = this.getNotes();
-     notes.push(note);
+  public addNotes(text: string): void {
+    let note = new Note(this.nextId, text);
+    let notes = this.getNotes();
+    notes.push(note);
 
-     this.setLocalStorageNotes(notes);
-     this.nextId++;
-   }
+    this.setLocalStorageNotes(notes);
+    this.nextId++;
+  }
 
-   public getNotes():Note[] {
-     let localStorageItem = JSON.parse(localStorage.getItem('notes'));
-     return localStorageItem == null ? [] : localStorageItem.notes;
-   }
+  public getNotes(): Note[] {
+    let localStorageItem = JSON.parse(localStorage.getItem('notes'));
+    return localStorageItem == null ? [] : localStorageItem.notes;
+  }
 
-   public removeNotes(id : number): void {
-     let notes = this.getNotes();
-     notes = notes.filter((note) => note.id != id);
-     this.setLocalStorageNotes(notes);
-   }
+  public removeNotes(id: number): void {
+    let notes = this.getNotes();
+    notes = notes.filter((note) => note.id != id);
+    this.setLocalStorageNotes(notes);
+  }
 
-   private setLocalStorageNotes(notes: Note[]) : void {
-     localStorage.setItem('notes',JSON.stringify({ notes : notes }));
-   }
+  private setLocalStorageNotes(notes: Note[]): void {
+    localStorage.setItem('notes', JSON.stringify({ notes: notes }));
+  }
 
-  //  public editNotes(id : number):void {
-  //    let notes = this.getNotes();
-  //    notes = notes.filter((note) => note.id == id);
-  //    notes.push(note);
-  //  }
+  public editNotes(id: number, text: string): void {
+    let notes = this.getNotes();
+    let note = notes.findIndex((note) => note.id == id);
+    notes[note] = { id: id, text: text };
+    this.setLocalStorageNotes(notes);
+  }
 }

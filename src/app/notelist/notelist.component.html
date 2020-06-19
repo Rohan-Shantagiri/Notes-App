@@ -1,5 +1,5 @@
 <div class="container">
     <button class="btn btn-danger" id="delete" (click)="delete()">x</button>
-    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+    <i class="fa fa-pencil-square-o" aria-hidden="true" (click)="edit(note.id,note.text)"></i>
     <h4>{{note.text}}</h4>
 </div>
